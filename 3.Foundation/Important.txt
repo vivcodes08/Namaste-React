@@ -1,0 +1,18 @@
+JSX is not part of the javascript
+you can build react app without using the JSX 
+JSX is not HTML in javascript
+JSX is HTML like syntax
+JSX is not pure javascript...js engines doesnt understand it....
+js engines understands ECMAScript(pure javascript)
+
+JSX(impure javascript)------>parcel(transpiled the code)-------->jsengine(recievces the code)--->browser(renders)
+
+pracel use babel to transpiled the jsx code into pure javascript
+
+
+
+React Functional Components:----
+
+1. Simple JavaScript function
+2. returns some JSX
+

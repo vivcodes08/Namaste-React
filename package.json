@@ -4,7 +4,8 @@
   "description": "This is my react journey !! Welcome to Namaste React",
 
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start":"parcel ./2.IgniteTheApp/ReactCDN.html"
   },
   "repository": {
     "type": "git",
