@@ -3,9 +3,13 @@ const Card=(props)=>{
         <>
         <div className="card">
             <img className="resturant-image" src={props.image}/>
-            <h3>{props.name}</h3>
-            <h5>{props.deliveryTime} ⌛</h5>
-            <h5>North-Indian, Dal Batti 😋</h5>
+            <h4>{props.name}</h4>
+            <div className="inner_card">
+            <span>{props.deliveryTime} ⌛</span>
+            <span>⭐{props.ratings}</span>
+            <span>North-Indian, Dal Batti 😋</span>
+            </div>
+            
         </div>
         </>
     )
