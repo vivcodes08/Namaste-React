@@ -2,11 +2,14 @@ import Card from './Card'
 import data from '../utils/data'
 import { useEffect, useState } from 'react'
 import SearchBar from "./SearchBar"
+import Skeleton1 from "./Skeleton"
 const BodyComponent=()=>{
 
    //!- useState
 
     const [resturantlist,setResturantList]=useState([])
+    const [filterReslist,setResFilterList]=useState([])
+    const [searchText,setSearchText]=useState("")
     console.log(resturantlist)
 
 
@@ -14,7 +17,7 @@ const BodyComponent=()=>{
 
     const getTopResturant=()=>{
         newResturantlist=resturantlist.filter(resturant=>parseFloat(resturant.data.avgRating)>4)
-        setResturantList(newResturantlist)
+        setResFilterList(newResturantlist)
     }
 
     // ^1.-- Every Time when the state changes or componet re-renders
@@ -43,18 +46,40 @@ const BodyComponent=()=>{
         let result=await data.json()
         console.log(result.data.cards[2].data.data.cards)
         setResturantList(result?.data?.cards[2]?.data?.data?.cards)
+        setResFilterList(result?.data?.cards[2]?.data?.data?.cards)
 
     }
+
+//!-------Searches Resturant using search Text Function
+const searchResturant=()=>{
+    let filterResList=resturantlist.filter(resturstant=>(resturstant.data.name).toLocaleLowerCase().includes(searchText))
+    setResFilterList(filterResList)
+    
+}
+
 
     return(
         <>
         <div className="body">
-        <SearchBar/>
+        <div className="search-bar">
+            <input 
+                className="search"
+                type="text"
+                placeholder="Search"
+                onChange={(e)=>{
+                    console.log(e.target.value)
+                    setSearchText((e.target.value).toLocaleLowerCase())
+                }}
+              />
+            <button type="submit" onClick={searchResturant}>🔍</button>
+        </div>
         <button onClick={getTopResturant}>Top Restraunt🍽️ </button>
         <div className="container">
            
             {
-                resturantlist.map(index=>{
+                filterReslist.length <0 ? <Skeleton1/>:
+
+                filterReslist.map(index=>{
                     return(
                        <Card
                         key={index.data.id} 

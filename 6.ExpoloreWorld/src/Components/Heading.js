@@ -1,6 +1,12 @@
+
+import {useState} from "react"
+
 import { LOGO_URL } from "../utils/constants"
 
 const Heading=()=>{
+    
+    let [isLoggedIn,setIsLoggedIn]=useState(false)
+
     return(
         <>
         <div className='header'>
@@ -12,7 +18,16 @@ const Heading=()=>{
                     <li>My Profile</li>
                     
                 </ul>
+                
             </div>
+            { (isLoggedIn) ? 
+                (
+                <button onClick={()=>setIsLoggedIn(false)}>LogOut ❌</button>
+                ):
+                (
+                <button onClick={()=>setIsLoggedIn(true)}>LogIn ✔️</button>
+                )
+            }
         </div>
         </>
     )
