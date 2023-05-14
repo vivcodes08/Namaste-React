@@ -1,3 +1,32 @@
 1.Package.json is the configuration file for NPM.
 2.NPM doesnt stands for Node Package Manager
 3.package-lock.json (manages the version of the depenceies of the package.json) 
+4.React doesnt track all the variables ... it only keeps the track of some specaial variables called states...
+Whenever the state changes react re-renders the BodyComponent
+
+states are defined using a special hook or a react inbuild hook or function called by the name of the hook
+
+React internal use diff algorithm to compare virtual doms which are just javascript objects
+
+react fiber is the new diff algorithm used by react
+
+it also uses some reconsolidation algorithm
+
+re-render which menas also function is callled again and react exactly know what is to be updated
+
+for every ui  change we do we need state
+
+
+// Very Very important
+
+React Component only re-render two times when something get changed in
+1.state
+2.props
+
+
+useEffect will be called just after the inital render of the Component
+
+1.useEffect with no depenceies array:- called every time Component re-renders
+2.useEffect with empty depenceies array:- called on first render only
+3.useEffect with filled depenceies array:- called first and every time the dependent variable changes
+
