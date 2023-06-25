@@ -30,3 +30,10 @@ useEffect will be called just after the inital render of the Component
 2.useEffect with empty depenceies array:- called on first render only
 3.useEffect with filled depenceies array:- called first and every time the dependent variable changes
 
+
+
+useState is react hook so that u can create  local state variables inside the component
+
+Never declare a component inside the component
+
+
